@@ -36,7 +36,6 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
-    // UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
@@ -51,7 +50,6 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle row selection if needed
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -60,18 +58,13 @@ class BookListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Remove the item from the data model
             books.remove(at: indexPath.row)
             
-            // Update UserDefaults
             saveBooks(books)
             
-            // Update table view
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    // MARK: - Helper methods
     
     func saveBooks(_ books: [Book]) {
         if let data = try? JSONEncoder().encode(books) {

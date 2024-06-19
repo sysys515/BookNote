@@ -21,7 +21,6 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         applyConstraints()
         setCalendar()
         reloadDateView(date: Date())
@@ -39,7 +38,6 @@ class CalendarViewController: UIViewController {
     }
     
     fileprivate func setCalendar() {
-            // 달력 설정 초기화
             dateView.delegate = self
             
             let dateSelection = UICalendarSelectionSingleDate(delegate: self)
@@ -55,7 +53,6 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController: UICalendarViewDelegate, UICalendarSelectionSingleDateDelegate {
     
-    // UICalendarView
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         if let selectedDate = selectedDate, selectedDate == dateComponents {
             return .customView {

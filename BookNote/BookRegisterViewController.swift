@@ -28,7 +28,6 @@ class BookRegisterViewController: UIViewController, UIImagePickerControllerDeleg
         enrollAlertEvent()
         addGestureRecognizer()
         
-        // 이미지뷰의 콘텐츠 모드를 설정합니다.
         bookImageView.contentMode = .scaleAspectFit
     }
     
@@ -62,13 +61,10 @@ class BookRegisterViewController: UIViewController, UIImagePickerControllerDeleg
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.originalImage] as? UIImage {
-                // Resize the image to fit within 200 points height, maintaining aspect ratio
                 let resizedImage = resizeImage(image: image, targetHeight: 200.0)
-                
-                // Set the resized image to the image view
+            
                 bookImageView.image = resizedImage
                 
-                // Store the selected image
                 selectedImage = resizedImage
             }
             dismiss(animated: true, completion: nil)

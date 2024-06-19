@@ -1,6 +1,6 @@
 <h1 align="middle">BookNote </h1>
 
-<h3 align="middle">swift를 이용한 독서 기록 앱</h3>
+<h3 align="middle">독서 기록 ios 앱</h3>
 
 
 
